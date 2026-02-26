@@ -73,4 +73,12 @@ export class DB {
   getCustomerById(id: number) {
     return CUSTOMERS.find((c) => c.id === id);
   }
+
+  getCustomerBySlug(slug: string) {
+    const [first_name, last_name] = slug.split('-')
+
+    if (!first_name || !last_name) return null
+
+    return CUSTOMERS.find((c) => c.first_name === first_name && c.last_name === last_name)
+  }
 }

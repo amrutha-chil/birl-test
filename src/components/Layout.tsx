@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 
 function NavLink({ href, children }: { href: string; children: ReactNode }) {
   const router = useRouter();
+  const isActive = router.pathname === href
 
   return (
     <Link

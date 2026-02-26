@@ -4,6 +4,7 @@ import { DB } from '@/db/db';
 
 interface Order {
   id: number;
+  customer_id: number;
   created_at: string;
   value: number;
   net_value: number;

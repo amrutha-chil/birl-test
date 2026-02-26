@@ -47,10 +47,10 @@ export default function CustomersIndex({ customers }: { customers: Customer[] })
             {customers.map((customer) => (
               <tr key={customer.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                 <td className="px-4 py-3">
-                  <Link className="text-blue-600 hover:text-blue-800 font-medium">#{customer.id}</Link>
+                  <Link className="text-blue-600 hover:text-blue-800 font-medium" href={`/customers/${customer.id}`}>#{customer.id}</Link>
                 </td>
                 <td className="px-4 py-3 text-gray-900 font-medium">
-                  <Link href={`/customers`} className="hover:text-blue-600 transition-colors">
+                  <Link href={`/customers/${customer.first_name}-${customer.last_name}`} className="hover:text-blue-600 transition-colors">
                     {customer.first_name} {customer.last_name}
                   </Link>
                 </td>

@@ -21,7 +21,8 @@ interface Order {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const db = new DB();
-  const customer = db.getCustomerById(Number(params?.id));
+  const isId = !isNaN(Number(params?.slug))
+  const customer = isId ? db.getCustomerById(Number(params?.slug)) : db.getCustomerBySlug(params?.slug ? params.slug.toString() : "");
 
   if (!customer) {
     return { notFound: true };
